@@ -1,0 +1,144 @@
+<!--
+  Generated template for the PicturesPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar primary>
+  <ion-buttons end>
+      <button (click)="showSearchBar()"><ion-icon name="search" isActive="false" ></ion-icon></button>
+      <button (click)="scan()"><ion-icon name="barcode" isActive="false"></ion-icon></button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="pictures">
+    
+    <ion-item *ngIf="showSearch" >
+        <ion-label><ion-icon name="search"></ion-icon></ion-label>
+        <ion-input name="searchInput" type="text" (input)="showButton($event)" [(ngModel)]="input" (keyup.enter)="search()" ></ion-input>
+
+    </ion-item>
+    <div *ngIf="submit">
+        <button block clear (click)="search()" *ngIf="submit">Search</button>
+    </div>
+    <!--<div padding>-->
+        <ion-item-divider secondary ><h4>{{productTitle}}</h4></ion-item-divider>
+    <!--</div>-->
+    <!--<ion-card padding *ngIf="noProducts" >
+        <ion-label> This product does not have any pictures :-(</ion-label>
+    </ion-card>
+    <ion-item-divider light >General Pictures (Max of 4)</ion-item-divider>
+    <div padding>
+        
+        <!--<button clear block id="takePicture" (click)="camera()" *ngIf="productImage.length < 4" >
+        <ion-icon name="add-circle"></ion-icon> New Picture</button>
+        
+        <ion-card *ngFor="#image of productImage; #i = index" >
+            <img src="{{image}}">
+            <ion-item>
+                <button clear danger (click)="remove(i)" >Remove <ion-icon name="trash"></ion-icon> <ion-icon name="trash"></ion-icon> <ion-icon name="trash"></ion-icon> Image</button>
+            </ion-item>
+        </ion-card>-->
+        
+        <ion-row *ngIf="purpose == 'picture' ">
+            <ion-col width-50 class="columnCard">
+                <ion-card *ngIf="productImage.length > 0"  >
+                    <img src="{{productImage[0]}}" height="{{width}}">
+                    <ion-item>
+                        <button item-right clear danger (click)="remove(0)" >Remove <ion-icon name="trash"></ion-icon></button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length == 0" >
+                    <img src="img/plus-empty.png" (click)="camera()" >
+                    <ion-item>
+                        <button item-right clear (click)="camera()" >New Picture</button>
+                    </ion-item>
+                </ion-card>
+            </ion-col>
+            
+            <ion-col width-50 class="columnCard">
+                <ion-card *ngIf="productImage.length > 1" >
+                    <img src="{{productImage[1]}}" height="{{width}}">
+                    <ion-item>
+                        <button item-right clear danger (click)="remove(1)" >Remove <ion-icon name="trash"></ion-icon></button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length == 1" >
+                    <img src="img/plus-empty.png" height="{{width}}" (click)="camera()" >
+                    <ion-item>
+                        <button item-right clear (click)="camera()" >New Picture</button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length < 1" >
+                    <img src="img/images.png" height="{{width}}">
+                    <ion-item> </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        
+        
+        
+        <ion-row *ngIf="purpose == 'picture' ">
+            <ion-col width-50 class="columnCard">
+                <ion-card *ngIf="productImage.length > 2" >
+                    <img src="{{productImage[2]}}" height="{{width}}">
+                    <ion-item>
+                        <button item-right clear danger (click)="remove(2)" >Remove <ion-icon name="trash"></ion-icon></button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length == 2" >
+                    <img src="img/plus-empty.png" height="{{width}}" (click)="camera()" >
+                    <ion-item>
+                        <button item-right clear (click)="camera()" >New Picture</button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length < 2" >
+                    <img src="img/images.png" height="{{width}}">
+                    <ion-item> </ion-item>
+                </ion-card>
+            </ion-col>
+            
+            <ion-col width-50 class="columnCard">
+                <ion-card *ngIf="productImage.length > 3" >
+                    <img src="{{productImage[3]}}" height="{{width}}">
+                    <ion-item>
+                        <button item-right clear danger (click)="remove(3)" >Remove <ion-icon name="trash"></ion-icon></button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length == 3" >
+                    <img src="img/plus-empty.png" height="{{width}}" (click)="camera()" >
+                    <ion-item>
+                        <button item-right clear (click)="camera()" >New Picture</button>
+                    </ion-item>
+                </ion-card>
+                
+                <ion-card *ngIf="productImage.length < 3" >
+                    <img src="img/images.png" height="{{width}}">
+                    <ion-item> </ion-item>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+                
+        <div *ngIf="purpose == 'inventory'" >
+            <ion-toolbar>
+                <ion-title>Item Inventory:</ion-title>
+            </ion-toolbar>
+            <button block clear (click)="add()"> <ion-icon name="add"> </ion-icon> </button>
+            <ion-input text-center [(ngModel)]="inventory" style="font-size: 72px;"></ion-input>
+            <button block clear (click)="subtract()"> <ion-icon name="remove"> </ion-icon> </button>
+        </div>
+        
+        <div *ngIf="purpose == 'info'" >
+            <ion-card padding>
+                Product Info Page (Coming Soon)
+            </ion-card>
+        </div>
+        
+    <!--</div>-->
+</ion-content>

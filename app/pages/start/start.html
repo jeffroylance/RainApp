@@ -1,0 +1,34 @@
+<!--
+  Generated template for the StartPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar primary hideBackButton="true">
+  <ion-buttons start>
+      <button (click)="logOut()" >Logout</button>
+  </ion-buttons>
+  <ion-title>Welcome!</ion-title>
+</ion-navbar>
+
+<ion-content class="start">
+  
+  <ion-item-divider secondary ><h5>What would you like to do?</h5></ion-item-divider>
+  
+  <!--<ion-item-group *ngIf="isAndroid == false" >
+    <button ion-item (click)="picture()"><ion-icon name="camera"></ion-icon> Take a Picture</button>
+    <button ion-item (click)="inventory()"><ion-icon name="archive" isActive="false"></ion-icon> Edit Inventory</button>
+    <button ion-item (click)="info()"><ion-icon name="search"></ion-icon> Get Product Info</button>
+  </ion-item-group>-->
+  
+  
+  <!--<div padding *ngIf="isAndroid == true" >-->
+  <div padding>
+    <button block (click)="picture()"><ion-icon name="camera"></ion-icon> Take a Picture</button>
+    <br/>
+    <button block (click)="inventory()"><ion-icon name="clipboard"></ion-icon> Edit Inventory</button>
+    <br/>
+    <button block (click)="info()"><ion-icon name="search"></ion-icon> Get Product Info</button>
+  </div>
+  
+</ion-content>

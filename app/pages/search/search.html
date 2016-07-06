@@ -1,0 +1,45 @@
+<!--
+  Generated template for the ProductsPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar primary hideBackButton="true">
+  <ion-buttons left>
+    <button (click)="goHome()" ><ion-icon name="arrow-back"></ion-icon> Back</button>
+  </ion-buttons>
+  <ion-title>Search</ion-title>
+</ion-navbar>
+
+<ion-content class="products">
+  <!--<ion-searchbar contrast></ion-searchbar>-->
+
+        <ion-header-bar>
+            <ion-item>
+                <ion-label><ion-icon name="search"></ion-icon></ion-label>
+                <ion-input name="searchInput" type="text" (input)="search($event)" [(ngModel)]="input" (keyup.enter)="findStage2()" ></ion-input>
+            </ion-item>
+            <div padding-right padding-left padding-top *ngIf="submit">
+                <button block (click)="findStage2()" *ngIf="submit">Search</button>
+            </div>
+        </ion-header-bar>
+
+        <div padding *ngIf="submit == false">
+            <button block id="startScan2" (click)="scan()" *ngIf="submit == false"><ion-icon name="qr-scanner"></ion-icon> Scan Barcode </button>
+        </div>
+        <button block clear id="startScan2" (click)="scan()" *ngIf="submit"><ion-icon name="qr-scanner"></ion-icon> Scan Barcode </button>
+
+        <ion-item no-lines text-wrap *ngIf="productTitle.length < 1" >
+            <ion-card padding>
+                Products will display here once you search or scan a barcode
+            </ion-card>
+        </ion-item>
+        <ion-list>
+        <ion-item-divider light *ngIf="productTitle.length > 0" >Results:</ion-item-divider>
+        <button ion-item text-wrap *ngFor="let title of productTitle; let i = index" (click)="nextPage(i)">{{title}}
+        </button>
+    </ion-list>
+                
+  
+</ion-content>
+

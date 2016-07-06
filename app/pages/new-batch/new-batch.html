@@ -1,0 +1,41 @@
+<!--
+  Generated template for the NewBatchPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar primary *navbar>
+  <ion-title>Create New Batch</ion-title>
+</ion-navbar>
+
+<ion-content class="new-batch">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Batch Name</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Store Location</ion-label>
+      <ion-select>
+        <ion-option>Springville</ion-option>
+        <ion-option>Sapporo</ion-option>
+        <ion-option>Disneyland</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Department</ion-label>
+      <ion-select>
+        <ion-option>Fabric</ion-option>
+        <ion-option>Books</ion-option>
+        <ion-option>The Basement</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer primary>
+<ion-toolbar primary>
+  <button contrast clear full (click)="push()" >Scan Some Barcodes <ion-icon name="arrow-forward"></ion-icon></button>
+</ion-toolbar>
+</ion-footer>

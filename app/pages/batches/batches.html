@@ -1,0 +1,61 @@
+<!--
+  Generated template for the BatchesPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar primary *navbar>
+  <ion-title>Your Batches</ion-title>
+</ion-navbar>
+
+<ion-content class="greyBG">
+  
+  <ion-card>
+    <div padding>
+      <ion-card-title>Batch Name 1</ion-card-title>
+      <ion-card-content>Fabric Department</ion-card-content>
+    </div>
+    <ion-row>
+      <ion-col text-left>
+        <button clear danger (click)="presentAlert()"><ion-icon name="close"></ion-icon> Close Batch</button>
+      </ion-col>
+      <ion-col text-right>
+        <button clear primary (click)="push()" >Continue<ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card>
+    <div padding>
+      <ion-card-title>Batch Name 2</ion-card-title>
+      <ion-card-content>Books Department</ion-card-content>
+    </div>
+    <ion-row>
+      <ion-col text-left>
+        <button clear danger (click)="presentAlert()" ><ion-icon name="close"></ion-icon> Close Batch</button>
+      </ion-col>
+      <ion-col text-right>
+        <button clear primary (click)="push()">Continue<ion-icon name="arrow-forward"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+</ion-content>
+
+<!--<ion-footer>
+  <button secondary full (click)="newBatch()" >Start New Batch <ion-icon name="md-add"></ion-icon></button>
+</ion-footer>-->
+
+<!--<ion-footer>
+  <ion-toolbar secondary>
+    <ion-buttons right>
+      <button (click)="newBatch()" >Start New Batch <ion-icon name="md-add"></ion-icon></button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>-->
+
+<ion-footer favorite>
+<ion-toolbar favorite>
+  <button contrast clear full (click)="newBatch()">Start New Batch <ion-icon name="md-add"></ion-icon></button>
+</ion-toolbar>
+</ion-footer>

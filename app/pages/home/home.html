@@ -1,0 +1,51 @@
+<ion-navbar primary>
+  <ion-title>
+     Login
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+  
+  
+      <ion-item>
+        <ion-label>Username</ion-label>
+        <ion-input name="username" type="text" autocapitalize="off" [(ngModel)]="credentials.username" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input name="password" type="password" [(ngModel)]="credentials.password" (keyup.enter)="login()"  ></ion-input>
+      </ion-item>
+      
+      
+      <div padding>
+        <button block id="login" (click)="login()" >Sign In</button>
+      </div>
+      
+      <ion-item no-lines>
+        <ion-checkbox [(ngModel)]="rememberMe"></ion-checkbox>
+        <ion-label>Remember Me</ion-label>
+      </ion-item>
+      
+      
+      <!--<ion-item no-lines>
+        <ion-label danger *ngIf="status.error" >{{status.error}}</ion-label>
+      </ion-item>-->
+      
+      <!--<ion-toolbar text-center no-border-bottom>
+          <ion-title>Item Inventory:</ion-title>
+      </ion-toolbar>
+      <br>
+      <br>
+      <button block clear (click)="add()"> <ion-icon name="add"> </ion-icon> </button>
+      <ion-input text-center [(ngModel)]="inventory" style="font-size: 72px;"></ion-input>
+      <button block clear (click)="subtract()"> <ion-icon name="remove"> </ion-icon> </button>-->
+
+      <!--<button block clear (click)="testNav()" >Go to Inventory Adjustment Page</button>
+      <button block clear (click)="batchesNav()" >Go to Batches Page</button>-->
+
+
+      
+      
+  
+</ion-content>

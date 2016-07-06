@@ -1,0 +1,105 @@
+<!--
+  Generated template for the TestPagePage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-navbar *navbar secondary>
+  <ion-title>Inventory</ion-title>
+  <ion-buttons end>
+      <button (click)="showSearchBar()"><ion-icon name="search" isActive="false" ></ion-icon></button>
+      <button><ion-icon name="barcode" isActive="false"></ion-icon></button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="secondaryBG">
+
+  <ion-item *ngIf="showSearch" >
+      <ion-label><ion-icon name="search"></ion-icon></ion-label>
+      <ion-input name="searchInput" type="text" (keyup.enter)="closeKeyboard()" (input)="showButton($event)" [(ngModel)]="input"></ion-input>
+  </ion-item>
+
+  <div *ngIf="submit">
+      <button block clear contrast *ngIf="submit">Search</button>
+  </div>
+
+  <!--<ion-toolbar secondary><h4 light padding-left>Test Product</h4></ion-toolbar>-->
+
+  <ion-toolbar text-center no-border-bottom primary>
+      <!--<ion-title>Inventory:</ion-title>-->
+      <ion-buttons>
+        <ion-row>
+          <ion-col>
+            <button full (click)="cancel()">Cancel</button>
+          </ion-col>
+          <ion-col>
+            <button full (click)="presentAlert()">Save</button>
+          </ion-col>
+        </ion-row>
+      </ion-buttons>
+  </ion-toolbar>
+
+  <ion-row class="secondaryBG-text">
+    <ion-col>
+    </ion-col>
+    <ion-col>
+      <button block clear contrast (click)="add()"> <ion-icon name="md-arrow-dropup"> </ion-icon> </button>
+    </ion-col>
+    <!--<ion-col *ngIf="inventory != originalInventory"  padding-top text-center style="font-size: 18px;">
+      {{originalInventory}}
+    </ion-col>-->
+    <ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row class="secondaryBG-text">
+    <ion-input text-center type="number" [(ngModel)]="inventory" style="font-size: 64px;" (keyup.enter)="closeKeyboard()" (input)="checkZero()" ></ion-input>
+  </ion-row>
+  <ion-row class="secondaryBG-text">
+    <ion-col>
+    </ion-col>
+    <ion-col>
+      <button block clear contrast (click)="subtract()"> <ion-icon name="md-arrow-dropdown"> </ion-icon> </button>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+
+<ion-card text-right style="align-self: flex-end;">
+  <ion-card-title text-center padding-left padding-right>
+    All Things Bright and Beautiful Quilt Pattern
+  </ion-card-title>
+  <div padding>
+    <ion-row>
+      <ion-col text-left>
+        Original Inventory:
+      </ion-col>
+      <ion-col>
+        {{originalInventory}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+      </ion-col>
+      <ion-col *ngIf="inventory - originalInventory == 0" >
+        ±{{inventory - originalInventory}}
+      </ion-col>
+      <ion-col class="favoriteText" *ngIf="inventory - originalInventory > 0" >
+        +{{inventory - originalInventory}}
+      </ion-col>
+      <ion-col class="dangerText" *ngIf="inventory - originalInventory < 0" >
+        {{inventory - originalInventory}}
+      </ion-col>
+    </ion-row>
+    <hr>
+    <ion-row>
+      <ion-col text-left>
+        New Inventory:
+      </ion-col>
+      <ion-col>
+        {{inventory}}
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-card>
+
+</ion-content>
