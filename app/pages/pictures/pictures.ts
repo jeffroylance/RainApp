@@ -96,7 +96,7 @@ export class PicturesPage {
       
       //upload picture
       var headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+      //headers.append('Content-Type', 'application/json');
       headers.append('Authorization', 'Bearer ' + this.token);
       console.log('{"headers": ' + JSON.stringify(headers) + '}')
       this.http.post(this.URL + "product/" +  this.productId + "/image/" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
