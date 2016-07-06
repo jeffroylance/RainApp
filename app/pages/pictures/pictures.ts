@@ -82,7 +82,7 @@ export class PicturesPage {
   camera() {
     //take picture
     console.log('Picture Button Clicked');
-    console.log(this.URL + "product/" +  this.productId + "/addImage")
+    console.log(this.URL + "product/" +  this.productId + "/image")
     Camera.getPicture({
       quality: 50,
       destinationType: 0,
@@ -96,8 +96,10 @@ export class PicturesPage {
       
       //upload picture
       var headers = new Headers();
+      headers.append('Content-Type', 'application/json');
       headers.append('Authorization', 'Bearer ' + this.token);
-      this.http.post(this.URL + "product/" +  this.productId + "/addImage" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
+      console.log('{"headers": ' + JSON.stringify(headers) + '}')
+      this.http.post(this.URL + "product/" +  this.productId + "/image" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
       .map(
         res => res.json()
       )
