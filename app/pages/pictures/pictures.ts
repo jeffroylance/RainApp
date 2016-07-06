@@ -99,7 +99,7 @@ export class PicturesPage {
       headers.append('Content-Type', 'application/json');
       headers.append('Authorization', 'Bearer ' + this.token);
       console.log('{"headers": ' + JSON.stringify(headers) + '}')
-      this.http.post(this.URL + "product/" +  this.productId + "/image" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
+      this.http.post(this.URL + "product/" +  this.productId + "/image/" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
       .map(
         res => res.json()
       )
