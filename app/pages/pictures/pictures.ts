@@ -99,7 +99,7 @@ export class PicturesPage {
       //headers.append('Content-Type', 'application/json');
       headers.append('Authorization', 'Bearer ' + this.token);
       console.log('{"headers": ' + JSON.stringify(headers) + '}')
-      this.http.post(this.URL + "product/" +  this.productId + "/image/" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
+      this.http.post(this.URL + "product/" +  this.productId + "/image/upload" , '{"image":"' + this.base64 + '"}', {"headers": headers} )
       .map(
         res => res.json()
       )
@@ -111,11 +111,11 @@ export class PicturesPage {
         err => {
           console.log(JSON.stringify(err));
           let alert = Toast.create({
-          message: JSON.stringify(err),
-          duration: 3000,
-          dismissOnPageChange: true
-      });
-      this.nav.present(alert);
+            message: JSON.stringify(err),
+            duration: 3000,
+            dismissOnPageChange: true
+          });
+          this.nav.present(alert);
         }
       )
     }, (err) => {
@@ -157,7 +157,7 @@ export class PicturesPage {
      // tell the server to remove selected image
       var headers = new Headers();
       headers.append('Authorization', 'Bearer ' + this.token);
-      this.http.post(this.URL + "product/" +  this.productId + "/removeImage" , '{"imageUrl":"' + this.productImage[number] + '"}', {"headers": headers} )
+      this.http.post(this.URL + "product/" +  this.productId + "/image/delete" , '{"imageUrl":"' + this.productImage[number] + '"}', {"headers": headers} )
       .map(
         res => res.json()
       )

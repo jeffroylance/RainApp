@@ -68,6 +68,15 @@ export class StartPage {
       purpose: 'info'
     });
   }
+
+  repair(){
+    console.log('Info button clicked');
+    this.nav.push(SearchPage, {
+      token: this.token,
+      //tells future pages that the user wants to find info on the product
+      purpose: 'repair'
+    });
+  }
   
   logOut(){
     console.log('Logged Out')

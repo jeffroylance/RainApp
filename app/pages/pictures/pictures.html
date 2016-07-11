@@ -22,7 +22,7 @@
         <button block clear (click)="search()" *ngIf="submit">Search</button>
     </div>
     <!--<div padding>-->
-        <ion-item-divider secondary ><h4>{{productTitle}}</h4></ion-item-divider>
+        <ion-toolbar *ngIf="purpose != inventory"  text-center secondary class="secondaryBG-text" >{{productTitle}} Pictures</ion-toolbar>
     <!--</div>-->
     <!--<ion-card padding *ngIf="noProducts" >
         <ion-label> This product does not have any pictures :-(</ion-label>
@@ -138,6 +138,37 @@
             <ion-card padding>
                 Product Info Page (Coming Soon)
             </ion-card>
+        </div>
+
+        <div *ngIf="purpose == 'repair'" >
+
+          <ion-row wrap>
+            <ion-col width-50 *ngFor="let img of productImage; let i = index" >
+              <ion-card>
+                <img src="{{productImage[i]}}" height="{{width}}">
+                <ion-row>
+                  <ion-col>
+                  </ion-col>
+                  <ion-col text-right>
+                    <button clear danger>Remove</button>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-col>
+            <ion-col width-50>
+              <ion-card>
+                <img src="img/plus-empty.png" height="{{width}}" >
+                <ion-row>
+                  <ion-col>
+                  </ion-col>
+                  <ion-col>
+                    <button clear primary>New Picture</button>
+                  </ion-col>
+                </ion-row>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+
         </div>
         
     <!--</div>-->

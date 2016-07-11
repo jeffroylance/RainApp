@@ -1,12 +1,13 @@
 //importing angular2 resources
 import { Component } from '@angular/core';
-import {Page, Storage, SqlStorage, Alert, Toast, Loading, NavController} from 'ionic-angular';
+import {Page, Storage, SqlStorage, Alert, Toast, Loading, NavController, Platform} from 'ionic-angular';
 import {SearchPage} from '../search/search';
 import {StartPage} from '../start/start';
 import {TestPagePage} from '../test-page/test-page';
+import {PicturesPage} from '../pictures/pictures';
 import {BatchesPage} from '../batches/batches';
 import {Http, Headers} from '@angular/http';
-import {BarcodeScanner} from 'ionic-native';
+import {BarcodeScanner, Splashscreen} from 'ionic-native';
 //import {JwtHelper} from 'angular2-jwt';
 import 'rxjs/Rx';
 
@@ -39,7 +40,8 @@ export class HomePage {
   constructor(
       private http: Http,
       public nav: NavController,
-      public bcScanner: BarcodeScanner
+      public bcScanner: BarcodeScanner,
+      public platform: Platform
       //public jwtHelper: JwtHelper
     ) {
     this.http = http;
@@ -79,7 +81,13 @@ export class HomePage {
   }
 
   batchesNav(){
-    this.nav.push(BatchesPage);
+    this.nav.push(StartPage);
+  }
+
+  repairNav(){
+    this.nav.push(PicturesPage, {
+      purpose: 'repair'
+    });
   }
 
   login(){
@@ -151,9 +159,8 @@ export class HomePage {
             }
             
             //navigate to the next page
-            this.nav.push(SearchPage, {
-              token: this.store.token,
-              purpose: 'picture'
+            this.nav.push(StartPage, {
+              token: this.store.token
             });
           }
         },
