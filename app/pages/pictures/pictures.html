@@ -150,7 +150,7 @@
                   <ion-col>
                   </ion-col>
                   <ion-col text-right>
-                    <button clear danger>Remove</button>
+                    <button clear danger (click)="remove(i)" >Remove</button>
                   </ion-col>
                 </ion-row>
               </ion-card>
@@ -162,7 +162,7 @@
                   <ion-col>
                   </ion-col>
                   <ion-col>
-                    <button clear primary (click)="remove(i)" >New Picture</button>
+                    <button clear primary>New Picture</button>
                   </ion-col>
                 </ion-row>
               </ion-card>
